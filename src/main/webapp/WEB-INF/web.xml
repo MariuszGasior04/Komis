@@ -15,4 +15,28 @@
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>witaj</servlet-name>
+    <servlet-class>pl.altkom.web.ControllerServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>witaj</servlet-name>
+    <url-pattern>/witaj</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>marka</servlet-name>
+    <servlet-class>pl.altkom.web.RedirectServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>marka</servlet-name>
+    <url-pattern>/marka</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>witaj</welcome-file>
+  </welcome-file-list>
+
 </web-app>
