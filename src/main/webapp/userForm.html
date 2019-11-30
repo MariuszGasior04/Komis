@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz uzytkownika</title>
+</head>
+<body>
+<form METHOD="POST" action="/Komis/add_user">
+    First name:<br>
+    <input type="text" name="firstname"><br>
+    Last name:<br>
+    <input type="text" name="lastname"><br>
+    Age:<br>
+    <select name = "age">
+        <option> </option>
+        <option> 18</option>
+        <option> 19</option>
+        <option> 20</option>
+        <option> 21</option>
+        <option> 22</option>
+        <option> 23</option>
+        <option> 24</option>
+        <option> 25</option>
+        <option> 26</option>
+        <option> 27</option>
+        <option> 28</option>
+        <option> 29</option>
+        <option> 30</option>
+    </select><br>
+    Region:<br>
+    <select name = "region">
+        <option>  </option>
+        <option> Polska </option>
+        <option> Niemcy</option>
+        <option> Rosja</option>
+    </select><br>
+    <input type="radio" name="sex" value="male" > Male<br>
+    <input type="radio" name="sex" value="female"> Female<br>
+
+    <input type="submit" value="Register">
+</form>
+</body>
+</html>

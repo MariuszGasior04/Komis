@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 public class RedirectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,6 +28,7 @@ public class RedirectServlet extends HttpServlet {
         pw.println("</BODY></HTML>");
 
     }
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String searchMarka = req.getParameter("marka");
