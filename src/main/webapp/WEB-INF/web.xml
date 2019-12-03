@@ -46,6 +46,16 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>add_car</servlet-name>
+    <servlet-class>pl.altkom.web.SaveCarDataServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>add_car</servlet-name>
+    <url-pattern>/add_car</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>users_data</servlet-name>
     <servlet-class>pl.altkom.web.PrintClientsDataServlet</servlet-class>
   </servlet>
@@ -53,6 +63,16 @@
   <servlet-mapping>
     <servlet-name>users_data</servlet-name>
     <url-pattern>/users_data</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>cars_data</servlet-name>
+    <servlet-class>pl.altkom.web.PrintCarsDataServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>cars_data</servlet-name>
+    <url-pattern>/cars_data</url-pattern>
   </servlet-mapping>
 
   <context-param>

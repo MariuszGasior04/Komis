@@ -1,6 +1,4 @@
-package pl.altkom;
-
-import pl.altkom.web.Client;
+package pl.altkom.web;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,8 +1,6 @@
 package pl.altkom.web;
 
 import pl.altkom.ClientDataDAO;
-import pl.altkom.ClientDataDAOImpl;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
