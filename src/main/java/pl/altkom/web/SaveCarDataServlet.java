@@ -14,18 +14,13 @@ import java.io.PrintWriter;
 public class SaveCarDataServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String searchBrand = req.getParameter("brand");
-        String searchType = req.getParameter("type");
-        String searchYear = req.getParameter("year");
-        String searchDistance = req.getParameter("distance");
-        String searchCapacity = req.getParameter("capacity");
 
         CarBean car = new CarBean();
-        car.setBrand(searchBrand);
-        car.setType(searchType);
-        car.setYear(Integer.parseInt(searchYear));
-        car.setDistance(searchDistance);
-        car.setCapacity(searchCapacity);
+        car.setBrand(req.getParameter("brand"));
+        car.setType(req.getParameter("type"));
+        car.setYear(Integer.parseInt(req.getParameter("year")));
+        car.setDistance(req.getParameter("distance"));
+        car.setCapacity(req.getParameter("capacity"));
 
         CarInfoDAOImpl dao = new CarInfoDAOImpl();
         PrintWriter pw = resp.getWriter();

@@ -1,7 +1,5 @@
 package pl.altkom.web;
 
-import pl.altkom.ClientDataDAOImpl;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -26,7 +24,8 @@ public class PrintClientsDataServlet extends HttpServlet {
             List clients = dao.readClientsData(ds);
 
             PrintWriter pw = resp.getWriter();
-            pw.println("<HTML><meta charset=\"UTF-8\"><HEAD>");
+            pw.println("<html lang=\"pl\">");
+            pw.println("<meta charset=\"UTF-8\"><HEAD>");
             pw.println("<TITLE>Lista klientow</TITLE>");
             pw.println("<style> table, th, td { border: 1px solid black; border-collapse: collapse;}</style>");
             pw.println("</HEAD><BODY>");

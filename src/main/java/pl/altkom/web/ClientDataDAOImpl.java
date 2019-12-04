@@ -5,12 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class ClientDataDAOImpl implements pl.altkom.ClientDataDAO {
+public class ClientDataDAOImpl implements pl.altkom.web.ClientDataDAO {
 
 	public void saveClientData(Client cl, String dataSource) throws Exception {
 		
@@ -42,6 +41,27 @@ public class ClientDataDAOImpl implements pl.altkom.ClientDataDAO {
         }
 	}
 
+	@Override
+	public void deleteClientData(String firstName, String lastName, DataSource dataSource) throws Exception {
+		Connection conn = null;
+
+		try {
+			conn = dataSource.getConnection();
+
+			PreparedStatement pstmt = conn.prepareStatement(
+					"DELETE FROM klient WHERE imie = '"+firstName+"' AND nazwisko = '"+lastName+"' ");
+
+			pstmt.executeUpdate();
+			pstmt.close();
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+	}
+
+
+	@Override
 	public List readClientsData(DataSource dataSource) throws Exception {
 
 		Connection conn = null;

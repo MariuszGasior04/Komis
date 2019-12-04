@@ -1,6 +1,5 @@
 package pl.altkom.web;
 
-import pl.altkom.ClientDataDAO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,26 +11,20 @@ public class SaveClientDataServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String searchFirstName = req.getParameter("firstname");
-        String searchLastName = req.getParameter("lastname");
-        String searchAge = req.getParameter("age");
-        String searchRegion = req.getParameter("region");
-        String searchSex = req.getParameter("sex");
-
         Client client = new Client();
-        client.setFirstName(searchFirstName);
-        client.setLastName(searchLastName);
-        client.setAge(Integer.parseInt(searchAge));
-        client.setRegion(searchRegion);
-        client.setSex(searchSex);
+        client.setFirstName(req.getParameter("firstname"));
+        client.setLastName(req.getParameter("lastname"));
+        client.setAge(Integer.parseInt(req.getParameter("age")));
+        client.setRegion(req.getParameter("region"));
+        client.setSex(req.getParameter("sex"));
 
         ClientDataDAO dao = new ClientDataDAOImpl();
         PrintWriter pw = resp.getWriter();
 
         try {
             dao.saveClientData(client, getServletContext().getInitParameter("dataSource"));
-
-            pw.println("<HTML><meta charset=\"UTF-8\"><HEAD>");
+            pw.println("<html lang=\"pl\">");
+            pw.println("<meta charset=\"UTF-8\"><HEAD>");
             pw.println("<TITLE>Dodano klienta</TITLE>");
             pw.println("</HEAD><BODY>");
             pw.println("<H3>Dodano do bazy nowego klienta</H3><br>");

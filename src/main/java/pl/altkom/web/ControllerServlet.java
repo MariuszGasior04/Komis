@@ -26,7 +26,10 @@ public class ControllerServlet extends HttpServlet {
 
         pw.println("<a href=\"makeForm.html\">Marka</a> <br>");
         pw.println("<a href=\"userForm.html\">Rejestracja klienta</a><br>");
+        pw.println("<a href=http://localhost:8080/Komis/delete_user_data>Usunięcie klienta z bazy</a><br>");
+        pw.println("<a href=http://localhost:8080/Komis/users_data>Rejestr klientów</a><br>");
         pw.println("<a href=\"carForm.html\">Rejestracja samochodu</a><br>");
+        pw.println("<a href=http://localhost:8080/Komis/cars_data>Rejestr samochodów</a><br>");
         pw.println("</BODY></HTML>");
     }
 }
