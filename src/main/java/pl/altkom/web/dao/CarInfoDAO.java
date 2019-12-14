@@ -1,4 +1,6 @@
-package pl.altkom.web;
+package pl.altkom.web.dao;
+
+import pl.altkom.web.CarBean;
 
 import javax.sql.DataSource;
 import java.util.List;

@@ -1,4 +1,6 @@
-package pl.altkom.web;
+package pl.altkom.web.dao;
+
+import pl.altkom.web.CarBean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

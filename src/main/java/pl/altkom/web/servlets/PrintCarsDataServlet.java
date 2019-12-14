@@ -1,9 +1,12 @@
-package pl.altkom.web;
+package pl.altkom.web.servlets;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
+import pl.altkom.web.CarBean;
+import pl.altkom.web.dao.CarInfoDAOImpl;
+
+import javax.annotation.Resource;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,13 +15,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+@WebServlet(urlPatterns = "/cars_data")
 public class PrintCarsDataServlet extends HttpServlet {
+
+    @Resource(name = "jdbc:komis")
+    DataSource ds;
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            InitialContext initCtx = new InitialContext();
-            Context context = (Context) initCtx.lookup("java:comp/env");
-            String dataSource = getServletContext().getInitParameter("dataSource");
-            DataSource ds = (DataSource) context.lookup(dataSource);
 
             CarInfoDAOImpl dao = new CarInfoDAOImpl();
             List cars = dao.readCarsData(ds);

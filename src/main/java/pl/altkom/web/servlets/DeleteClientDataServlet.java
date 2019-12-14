@@ -1,9 +1,14 @@
-package pl.altkom.web;
+package pl.altkom.web.servlets;
+
+import pl.altkom.web.Client;
+import pl.altkom.web.dao.ClientDataDAO;
+import pl.altkom.web.dao.ClientDataDAOImpl;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+@WebServlet(urlPatterns = "/delete_user_data")
 public class DeleteClientDataServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
