@@ -19,6 +19,7 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/delete_user_data")
 public class DeleteClientDataServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
@@ -75,7 +76,7 @@ public class DeleteClientDataServlet extends HttpServlet {
             pw.println("<HEAD><TITLE>Usunieto klienta</TITLE>");
             pw.println("</HEAD><BODY>");
             pw.println("<H3>Usunieto z bazy klienta</H3><br>");
-            pw.println("<a href= http://localhost:8080/Komis >Powrot do menu</a>");
+            pw.println("<a href= http://localhost:8080/Komis/witaj >Powrot do menu</a>");
             pw.println("</BODY></HTML>");
 
         } catch (NamingException e) {

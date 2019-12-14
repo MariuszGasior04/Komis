@@ -63,6 +63,7 @@
         <version>2.2</version>
         <configuration>
           <contextFile>src/main/webapp/META-INF/context.xml</contextFile>
+          <tomcatUsers>src/main/webapp/META-INF/tomcat-users.xml</tomcatUsers>
         </configuration>
         <dependencies>
           <dependency>

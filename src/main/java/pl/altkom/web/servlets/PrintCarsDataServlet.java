@@ -30,10 +30,10 @@ public class PrintCarsDataServlet extends HttpServlet {
 
             PrintWriter pw = resp.getWriter();
             pw.println("<HTML><meta charset=\"UTF-8\"><HEAD>");
-            pw.println("<TITLE>Lista samochodów</TITLE>");
+            pw.println("<TITLE>Lista samochodow</TITLE>");
             pw.println("<style> table, th, td { border: 1px solid black; border-collapse: collapse;}</style>");
             pw.println("</HEAD><BODY>");
-            pw.println("<H3>Lista samochodów w bazie danych</H3><br>");
+            pw.println("<H3>Lista samochodow w bazie danych</H3><br>");
             pw.println("<table style=\"width:80%\">");
             pw.println("<tr><th>Brand</th>");
             pw.println("<th>Type</th>");
@@ -49,7 +49,9 @@ public class PrintCarsDataServlet extends HttpServlet {
                 pw.println("<td>"+car.getDistance()+"</td>");
                 pw.println("<td>"+car.getCapacity()+"</td></tr>");
             }
-            pw.println("</table></BODY></HTML>");
+            pw.println("</table><br>");
+            pw.println("<br><a href= http://localhost:8080/Komis/witaj >Powrot do menu</a>");
+            pw.println("</BODY></HTML>");
 
         } catch (NamingException e) {
             e.printStackTrace();

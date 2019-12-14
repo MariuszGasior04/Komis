@@ -50,7 +50,9 @@ public class PrintClientsDataServlet extends HttpServlet {
                 pw.println("<td>"+client.getRegion()+"</td>");
                 pw.println("<td>"+client.getSex()+"</td></tr>");
             }
-            pw.println("</table></BODY></HTML>");
+            pw.println("</table><br>");
+            pw.println("<br><a href= http://localhost:8080/Komis/witaj >Powrot do menu</a>");
+            pw.println("</BODY></HTML>");
 
         } catch (NamingException e) {
             e.printStackTrace();

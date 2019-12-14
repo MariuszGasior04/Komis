@@ -19,6 +19,7 @@ public class HelloServlet extends HttpServlet {
         pw.println("<TITLE>Hello</TITLE>");
         pw.println("</HEAD><BODY>");
         pw.println("<H3>Hello World!</H3>");
+        pw.println("<a href=http://localhost:8080/Komis/witaj>Przejdz do glownej strony</a><br>");
         pw.println("</BODY></HTML>");
     }
 }
