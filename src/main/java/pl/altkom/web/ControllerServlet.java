@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -12,6 +13,7 @@ public class ControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         PrintWriter pw = resp.getWriter();
+        HttpSession session = req.getSession();
         String name = req.getParameter("name");
 
         pw.println("<HTML><HEAD>");
@@ -30,6 +32,8 @@ public class ControllerServlet extends HttpServlet {
         pw.println("<a href=http://localhost:8080/Komis/users_data>Rejestr klientów</a><br>");
         pw.println("<a href=\"carForm.html\">Rejestracja samochodu</a><br>");
         pw.println("<a href=http://localhost:8080/Komis/cars_data>Rejestr samochodów</a><br>");
+        pw.println("Nowa sesja: " + session.isNew() + "<br>");
+        pw.println("Liczba sesji: "+SessionCounter.getCounter());
         pw.println("</BODY></HTML>");
     }
 }
