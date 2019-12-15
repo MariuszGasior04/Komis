@@ -69,16 +69,17 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 			conn = dataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement(
-					"SELECT imie, nazwisko, region, wiek, mezczyzna FROM klient");
+					"SELECT id, imie, nazwisko, region, wiek, mezczyzna FROM klient");
 
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Client cl = new Client();
-				cl.setFirstName(rs.getString(1));
-				cl.setLastName(rs.getString(2));
-				cl.setRegion(rs.getString(3));
-				cl.setAge(rs.getInt(4));
-				if(rs.getInt(5) == 1){
+				cl.setId(rs.getInt(1));
+				cl.setFirstName(rs.getString(2));
+				cl.setLastName(rs.getString(3));
+				cl.setRegion(rs.getString(4));
+				cl.setAge(rs.getInt(5));
+				if(rs.getInt(6) == 1){
 					cl.setSex("male");
 				}else{
 					cl.setSex("female");
@@ -95,6 +96,26 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 		}
 		return clients;
 	}
+
+	@Override
+	public void deleteClientData(int id, DataSource dataSource) throws Exception {
+		Connection conn = null;
+
+		try {
+			conn = dataSource.getConnection();
+
+			PreparedStatement pstmt = conn.prepareStatement(
+					"DELETE FROM klient WHERE id = '"+id+"'");
+
+			pstmt.executeUpdate();
+			pstmt.close();
+		} finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+	}
+
 	private int generateId() {
 		return ((int) (System.currentTimeMillis() % 100000)) + 100000;
 	}

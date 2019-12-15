@@ -12,22 +12,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/users_data")
-public class PrintClientsDataServlet extends HttpServlet {
-
+@WebServlet(urlPatterns = "/read_clients")
+public class ReadClientcServlet extends HttpServlet {
     @Resource(name = "jdbc:komis")
     DataSource ds;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             ClientDataDAOImpl dao = new ClientDataDAOImpl();
             List clients = dao.readClientsData(ds);
             req.setAttribute("clients", clients);
-            req.getRequestDispatcher("listClientsData.jsp").forward(req,resp);
+            req.getRequestDispatcher("list_delete_clients.jsp").forward(req,resp);
 
         } catch (NamingException e) {
             e.printStackTrace();
