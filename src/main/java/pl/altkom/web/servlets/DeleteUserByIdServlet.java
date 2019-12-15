@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "delete_user_by_id")
+@WebServlet(urlPatterns = "/delete_user_by_id")
 public class DeleteUserByIdServlet extends HttpServlet {
     @Resource(name = "jdbc:komis")
     DataSource ds;
