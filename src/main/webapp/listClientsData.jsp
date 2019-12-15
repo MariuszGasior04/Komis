@@ -24,7 +24,9 @@
         <th>Age</th>
         <th>Region</th>
         <th>Sex</th>
-        <th>Akcja</th></tr>
+        <th>Usówanie</th>
+        <th>Edycja</th>
+    </tr>
     <% for(Object oClient: clients){%>
     <%Client client = (Client) oClient; %>
     <tr><td><%=client.getFirstName()%></td>
@@ -33,9 +35,14 @@
         <td><%=client.getRegion()%></td>
         <td><%=client.getSex()%></td>
         <td><form action="delete_user_by_id">
-            <input type="hidden" name= "id" value="<%=client.getId()%>"/>
-            <input type="submit" value="Usuń"/>
-        </form></td></tr>
+            <input type="hidden" name = "id" value ="<%=client.getId()%>"/>
+            <input type="submit" value ="Usuń"/>
+        </form></td>
+        <td><form action="userEditForm.jsp">
+            <input type="hidden" name = "id" value ="<%=client.getId()%>"/>
+            <input type="submit" value ="Edytuj"/>
+        </form></td>
+    </tr>
     <%}%>
 
 </table><br>

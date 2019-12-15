@@ -32,10 +32,10 @@ public class ControllerServlet extends HttpServlet {
 
         pw.println("<a href=\"makeForm.html\">Marka</a> <br>");
         pw.println("<a href=\"userForm.jsp\">Rejestracja klienta</a><br>");
-        pw.println("<a href=http://localhost:8080/Komis/read_clients>Usuniecie klienta z bazy</a><br>");
-        pw.println("<a href=http://localhost:8080/Komis/users_data>Rejestr klientów</a><br>");
-        pw.println("<a href=\"carForm.html\">Rejestracja samochodu</a><br>");
-        pw.println("<a href=http://localhost:8080/Komis/cars_data>Rejestr samochodów</a><br>");
+        pw.println("<a href=read_clients>Usuniecie klienta z bazy</a><br>");
+        pw.println("<a href=users_data>Rejestr klientów</a><br>");
+        pw.println("<a href=\"carInfoForm.jsp\">Rejestracja samochodu</a><br>");
+        pw.println("<a href=cars_data>Rejestr samochodów</a><br>");
         //pw.println("<h5>Nowa sesja: " + session.isNew() + "</h5>");
         pw.println("<h5>Liczba sesji: "+ SessionCounter.getCounter()+"</h5><br>");
 

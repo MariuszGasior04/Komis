@@ -41,8 +41,8 @@ public class SaveClientDataServlet extends HttpServlet {
             pw.println("<TITLE>Dodano klienta</TITLE>");
             pw.println("</HEAD><BODY>");
             pw.println("<H3>Dodano do bazy nowego klienta</H3><br>");
-            pw.println("<a href=\"userForm.html\">Spowrotem do formularza</a><br>");
-            pw.println("<a href= http://localhost:8080/Komis/witaj >Powrot do menu</a>");
+            pw.println("<a href=\"userForm.jsp\">Spowrotem do formularza</a><br>");
+            pw.println("<a href= witaj >Powrot do menu</a>");
             pw.println("</BODY></HTML>");
 
         } catch (Exception e) {
