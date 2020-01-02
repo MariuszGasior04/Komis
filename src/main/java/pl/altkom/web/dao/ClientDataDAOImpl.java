@@ -116,6 +116,24 @@ public class ClientDataDAOImpl implements ClientDataDAO {
 		}
 	}
 
+	@Override
+	public void editClientData(Client client, DataSource dataSource) throws Exception {
+		int plec = client.getSex().equals("mezczyzna") ? 0 : 1;
+		Connection con = null;
+		try {
+			con = dataSource.getConnection();
+			con.createStatement().
+					executeUpdate("update klient set imie = '" + client.getFirstName()+"', nazwisko = '"+
+							client.getLastName()+"', region = '" + client.getRegion() + "' , wiek = "+client.getAge()+" , " +
+							"mezczyzna = "+ plec +" where id = " + client.getId()+";");
+		}finally {
+			if(con!=null)
+				con.close();
+		}
+	}
+
+
+
 	private int generateId() {
 		return ((int) (System.currentTimeMillis() % 100000)) + 100000;
 	}

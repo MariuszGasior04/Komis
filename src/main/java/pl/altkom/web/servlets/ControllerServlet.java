@@ -1,6 +1,7 @@
 package pl.altkom.web.servlets;
 
 import pl.altkom.web.listeners.SessionCounter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

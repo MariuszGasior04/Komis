@@ -11,4 +11,6 @@ public interface ClientDataDAO {
 	public void deleteClientData(String firstName, String lastName, DataSource dataSource) throws Exception;
 	public List readClientsData(DataSource dataSource) throws Exception;
 	public void deleteClientData(int id, DataSource dataSource) throws Exception;
+	public void editClientData(Client client, DataSource dataSource) throws Exception;
+
 }

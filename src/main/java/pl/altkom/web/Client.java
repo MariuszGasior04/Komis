@@ -10,7 +10,9 @@ public class Client {
 
     public Client() {
     }
-
+    public String getData(){
+        return id+" "+ firstName+" "+lastName + " " + age + " "+ region + " " + sex;
+    }
     public String getFirstName() {
         return firstName;
     }

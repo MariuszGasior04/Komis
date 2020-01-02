@@ -24,8 +24,8 @@
         <th>Age</th>
         <th>Region</th>
         <th>Sex</th>
-        <th>Usówanie</th>
-        <th>Edycja</th>
+        <th>Delete</th>
+        <th>Edit</th>
     </tr>
     <% for(Object oClient: clients){%>
     <%Client client = (Client) oClient; %>
@@ -38,8 +38,8 @@
             <input type="hidden" name = "id" value ="<%=client.getId()%>"/>
             <input type="submit" value ="Usuń"/>
         </form></td>
-        <td><form action="userEditForm.jsp">
-            <input type="hidden" name = "id" value ="<%=client.getId()%>"/>
+        <td><form action="editClient.jsp">
+            <input type="hidden" name = "client" value ="<%=client.getData()%>"/>
             <input type="submit" value ="Edytuj"/>
         </form></td>
     </tr>
