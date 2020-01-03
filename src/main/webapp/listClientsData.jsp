@@ -46,6 +46,6 @@
     <%}%>
 
 </table><br>
-<a href= http://localhost:8080/Komis/witaj >Powrot do menu</a>
+<a href= Komis/witaj >Powrot do menu</a>
 </body>
 </html>

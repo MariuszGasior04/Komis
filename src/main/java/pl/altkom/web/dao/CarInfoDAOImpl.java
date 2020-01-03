@@ -1,6 +1,7 @@
 package pl.altkom.web.dao;
 
 import pl.altkom.web.CarBean;
+import pl.altkom.web.Client;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,16 +51,17 @@ public class CarInfoDAOImpl implements CarInfoDAO {
 			conn = dataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement(
-					"SELECT marka,typ,rok,przebieg,pojemnosc FROM pojazd");
+					"SELECT id, marka,typ,rok,przebieg,pojemnosc FROM pojazd");
 
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CarBean cb = new CarBean();
-				cb.setBrand(rs.getString(1));
-				cb.setType(rs.getString(2));
-				cb.setYear(rs.getInt(3));
-				cb.setDistance(rs.getString(4));
-				cb.setCapacity(rs.getString(5));
+				cb.setId(rs.getInt(1));
+				cb.setBrand(rs.getString(2));
+				cb.setType(rs.getString(3));
+				cb.setYear(rs.getInt(4));
+				cb.setDistance(rs.getString(5));
+				cb.setCapacity(rs.getString(6));
 				cars.add(cb);
 			}
 
@@ -71,6 +73,43 @@ public class CarInfoDAOImpl implements CarInfoDAO {
 			}
 		}
 		return cars;
+	}
+
+	@Override
+	public void deleteCarData(int id, DataSource dataSource) throws Exception {
+		Connection conn = null;
+		try{
+			conn = dataSource.getConnection();
+
+			PreparedStatement pstmt = conn.prepareStatement(
+					"DELETE FROM pojazd WHERE id = '"+id+"'");
+
+			pstmt.executeUpdate();
+			pstmt.close();
+		}
+		finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
+	}
+
+	@Override
+	public void editCarData(CarBean car, DataSource dataSource) throws Exception {
+		Connection conn = null;
+		try{
+			conn = dataSource.getConnection();
+			//id, marka,typ,rok,przebieg,pojemnosc
+			conn.createStatement().
+					executeUpdate("update pojazd set marka = '" + car.getBrand()+"', typ = '"+
+							car.getType()+"', rok = '" + car.getYear() + "' , przebieg = "+car.getDistance()+" , " +
+							"pojemnosc = "+ car.getCapacity() +" where id = " + car.getId()+";");
+		}
+		finally {
+			if (conn != null) {
+				conn.close();
+			}
+		}
 	}
 
 	private int generateId() {

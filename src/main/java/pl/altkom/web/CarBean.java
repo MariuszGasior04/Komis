@@ -1,6 +1,7 @@
 package pl.altkom.web;
 
 public class CarBean {
+    private int id;
     private String brand;
     private String type;
     private int year;
@@ -8,6 +9,18 @@ public class CarBean {
     private String capacity;
 
     public CarBean(){
+    }
+
+    public String getData(){
+        return id+" "+ brand+" "+type + " " + year + " "+ distance + " " + capacity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBrand() {

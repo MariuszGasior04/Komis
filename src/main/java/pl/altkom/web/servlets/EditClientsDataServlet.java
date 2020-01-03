@@ -37,7 +37,7 @@ public class EditClientsDataServlet extends HttpServlet {
             req.getRequestDispatcher("users_data").forward(req, resp);
 
         }catch(Exception e){
-            throw new ServletException("cannot delete user");
+            throw new ServletException("cannot edit user");
         }
 
     }
