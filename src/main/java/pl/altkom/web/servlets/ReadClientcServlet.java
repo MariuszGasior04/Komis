@@ -1,6 +1,5 @@
 package pl.altkom.web.servlets;
 
-import pl.altkom.web.Client;
 import pl.altkom.web.dao.ClientDataDAOImpl;
 
 import javax.annotation.Resource;

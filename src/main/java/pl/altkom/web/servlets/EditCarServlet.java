@@ -3,7 +3,6 @@ package pl.altkom.web.servlets;
 import pl.altkom.web.CarBean;
 import pl.altkom.web.dao.CarInfoDAO;
 import pl.altkom.web.dao.CarInfoDAOImpl;
-import pl.altkom.web.dao.ClientDataDAOImpl;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;

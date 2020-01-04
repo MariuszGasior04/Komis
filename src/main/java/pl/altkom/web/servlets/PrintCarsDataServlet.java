@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.List;
 
+
 @WebServlet(urlPatterns = "/cars_data")
 public class PrintCarsDataServlet extends HttpServlet {
 

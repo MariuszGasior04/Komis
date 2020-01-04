@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 @WebServlet(urlPatterns = "/marka")
 public class RedirectServlet extends HttpServlet {
     @Override

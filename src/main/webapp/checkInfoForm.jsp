@@ -34,6 +34,16 @@
     </tr>
 </table>
 
+<form action="add_car">
+    <input type="hidden" name="brand" value='<%= request.getParameter("brand")%>'>
+    <input type="hidden" name="type" value='<%= request.getParameter("type")%>'>
+    <input type="hidden" name="year" value='<%= request.getParameter("year")%>'>
+    <input type="hidden" name="distance" value='<%= request.getParameter("distance")%>'>
+    <input type="hidden" name="capacity" value='<%= request.getParameter("capacity")%>'>
+
+    <input type="submit" value="Zapisz samochód">
+</form>
+
 <a href = witaj>Powrót do menu głównego </a>
 <jsp:include page='<%= "stopka.html" %>' />
 </body>

@@ -4,9 +4,6 @@ import pl.altkom.web.CarBean;
 import pl.altkom.web.dao.CarInfoDAOImpl;
 
 import javax.annotation.Resource;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 @WebServlet(urlPatterns = "/add_car")
 public class SaveCarDataServlet extends HttpServlet {
@@ -23,7 +20,7 @@ public class SaveCarDataServlet extends HttpServlet {
     DataSource ds;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         CarBean car = new CarBean();
         car.setBrand(req.getParameter("brand"));
@@ -35,7 +32,7 @@ public class SaveCarDataServlet extends HttpServlet {
         CarInfoDAOImpl dao = new CarInfoDAOImpl();
 
         dao.saveCarInfo(car,ds);
-        req.getRequestDispatcher("checkInfoForm.jsp").forward(req,resp);
+        req.getRequestDispatcher("cars_data").forward(req,resp);
 
     }
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form METHOD="POST" action="/Komis/add_car">
+<form METHOD="POST" action="checkInfoForm.jsp">
     Brand:<br>
     <input type="text" name="brand"><br>
     Car type:<br>
