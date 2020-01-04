@@ -44,7 +44,7 @@ public class ControllerServlet extends HttpServlet {
         if(counter ==null){
             pw.println("Nie ma dodanych nowych klientow");
         }else{
-            pw.println("Dodano: "+counter.toString()+" uzytkownikow");
+            pw.println("Dodano: "+counter.toString()+" obiektów");
         }
         pw.println("</BODY></HTML>");
     }

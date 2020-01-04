@@ -12,19 +12,24 @@
         Nazwisko: <input type="text" value = <%=data[2]%> name="lastName"> <br>
         Wiek: <select name="age" >
         <%for(int i = 1; i<=100; i++){%>
-        <%out.print("<option>"+i+"</option>");%>
-        <%}%>
+        <% if(i == Integer.valueOf(data[3])){%>
+        <option selected="selected"><%=i%></option>
+        <%} else {%>
+        <option><%=i%></option>
+        <%}}%>
     </select> <br>
         Region: <select name="region">
-        <option >Polska</option>
-        <%--nie dziala to0--%>
-        <option <%if(data[3].equals("Niemcy"))out.print("selected=\"selected\"");%>>Niemcy</option>
-        <option <%if(data[3].equals("Czechy"))out.print("selected=\"selected\"");%>>>Czechy</option>
-        <option <%if(data[3].equals("Francja"))out.print("selected=\"selected\"");%>>>Francja</option>
-        <option <%if(data[3].equals("Holandia"))out.print("selected=\"selected\"");%>>>Holandia</option>
+        <option>Polska</option>
+        <option <%if(data[4].equals("Niemcy"))out.print("selected=\"selected\"");%>>Niemcy</option>
+        <option <%if(data[4].equals("Rosja"))out.print("selected=\"selected\"");%>>Rosja</option>
     </select><br>
-        <input type="radio" name="sex" value="MALE"> Mężczyzna <br>
+        <% if(data[5].equals("male")){%>
+        <input type="radio" name="sex" value="MALE" checked> Mężczyzna <br>
         <input type="radio" name="sex" value="FEMALE"> Kobieta <br>
+        <%} else {%>
+        <input type="radio" name="sex" value="MALE" > Mężczyzna <br>
+        <input type="radio" name="sex" value="FEMALE" checked> Kobieta <br>
+            <%}%>
         <input type="submit" value="Edytuj">
     </form>
 

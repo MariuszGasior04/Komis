@@ -12,6 +12,7 @@
 </head>
 <body>
 <%String [] data = request.getParameter("car").split(" ");%>
+
 <form action="edit_car">
     <input type="hidden" name="id" value = "<%=data[0]%>">
     Brand:<br>
@@ -21,8 +22,11 @@
     Year of production:<br>
     <select name="year">
         <%for(int i =2019;i>=1900;i--){%>
+        <% if(i == Integer.valueOf(data[3])){%>
+        <option selected="selected"><%=i%></option>
+        <%} else {%>
         <option><%=i%></option>
-        <%}%>
+        <%}}%>
     </select><br>
     Distane:<br>
     <input type="number" name="distance" value = "<%=data[4]%>"><br>

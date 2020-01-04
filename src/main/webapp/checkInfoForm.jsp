@@ -11,40 +11,47 @@
     <title>Utworzono</title>
 </head>
 <body>
+
+<jsp:useBean id="car" scope="session" class="pl.altkom.web.CarBean"/>
+<%--<jsp:setProperty name="car" property="make"/>--%>
+<%--<jsp:setProperty name="car" property="type"/>--%>
+<%--<jsp:setProperty name="car" property="year"/>--%>
+<%--<jsp:setProperty name="car" property="distance"/>--%>
+<%--<jsp:setProperty name="car" property="capacity"/>--%>
+
+<jsp:setProperty name="car" property="*" />
+
 <table>
     <tr>
-        <td> Brand </td>
-        <td> <%=request.getParameter("brand")%></td>
+        <td> Brand: </td>
+        <td> <jsp:getProperty name="car" property="brand"/></td>
     </tr>
     <tr>
-        <td> Type </td>
-        <td> <%=request.getParameter("type")%></td>
+        <td> Type: </td>
+        <td> <jsp:getProperty name="car" property="type"/></td>
     </tr>
     <tr>
-        <td> Year </td>
-        <td> <%=request.getParameter("year")%></td>
+        <td> Year: </td>
+        <td> <jsp:getProperty name="car" property="year"/></td>
     </tr>
     <tr>
-        <td> Distance </td>
-        <td> <%=request.getParameter("distance")%></td>
+        <td> Distance: </td>
+        <td> <jsp:getProperty name="car" property="distance"/></td>
     </tr>
     <tr>
-        <td> Capacity </td>
-        <td> <%=request.getParameter("capacity")%></td>
+        <td> Capacity: </td>
+        <td> <jsp:getProperty name="car" property="capacity"/></td>
     </tr>
 </table>
 
-<form action="add_car">
-    <input type="hidden" name="brand" value='<%= request.getParameter("brand")%>'>
-    <input type="hidden" name="type" value='<%= request.getParameter("type")%>'>
-    <input type="hidden" name="year" value='<%= request.getParameter("year")%>'>
-    <input type="hidden" name="distance" value='<%= request.getParameter("distance")%>'>
-    <input type="hidden" name="capacity" value='<%= request.getParameter("capacity")%>'>
-
-    <input type="submit" value="Zapisz samochód">
+<form action="carInfoForm.jsp">
+    <input type="submit" value="Edytuj">
 </form>
 
-<a href = witaj>Powrót do menu głównego </a>
+<form action="add_car">
+        <input type="submit" value="Zapisz samochód">
+</form>
+
 <jsp:include page='<%= "stopka.html" %>' />
 </body>
 </html>

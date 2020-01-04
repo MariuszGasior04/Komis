@@ -22,16 +22,12 @@ public class SaveCarDataServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        CarBean car = new CarBean();
-        car.setBrand(req.getParameter("brand"));
-        car.setType(req.getParameter("type"));
-        car.setYear(Integer.parseInt(req.getParameter("year")));
-        car.setDistance(req.getParameter("distance"));
-        car.setCapacity(req.getParameter("capacity"));
-
+        CarBean car = (CarBean) req.getSession().getAttribute("car");
         CarInfoDAOImpl dao = new CarInfoDAOImpl();
 
         dao.saveCarInfo(car,ds);
+
+        req.getSession().removeAttribute("car");
         req.getRequestDispatcher("cars_data").forward(req,resp);
 
     }
